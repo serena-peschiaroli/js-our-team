@@ -34,7 +34,12 @@ const teamMember = [
 ];
 
 console.log(teamMember);
-
+console.log(teamMember[0].nome, teamMember[0].ruolo)
+console.log(teamMember[1].nome, teamMember[1].ruolo)
+console.log(teamMember[2].nome, teamMember[2].ruolo)
+console.log(teamMember[3].nome, teamMember[3].ruolo)
+console.log(teamMember[4].nome, teamMember[4].ruolo)
+console.log(teamMember[5].nome, teamMember[5].ruolo)
 
 const rowElem = document.querySelector(".row");
 let membersElems = "";
@@ -45,7 +50,7 @@ for(let i = 0; i < teamMember.length; i++) {
     
         <div class="col">
             <div class="card" style="width: 18rem;">
-                <img src="${curMember.foto}" class="card-img-top" alt="...">
+                <img src="img/${curMember.foto}" class="card-img-top" alt="...">
                 <div class="card-body">
                      <h5 class="card-title">${curMember.nome}</h5>
                      <p class="card-text">${curMember.ruolo}</p>
@@ -55,5 +60,5 @@ for(let i = 0; i < teamMember.length; i++) {
     `;
 }
 
-console.log(membersElems);
+
 rowElem.innerHTML = membersElems;
