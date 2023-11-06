@@ -34,3 +34,26 @@ const teamMember = [
 ];
 
 console.log(teamMember);
+
+
+const rowElem = document.querySelector(".row");
+let membersElems = "";
+
+for(let i = 0; i < teamMember.length; i++) {
+    const curMember = teamMember[i];
+    membersElems += `
+    
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="${curMember.foto}" class="card-img-top" alt="...">
+                <div class="card-body">
+                     <h5 class="card-title">${curMember.nome}</h5>
+                     <p class="card-text">${curMember.ruolo}</p>
+                </div>
+            </div>    
+        </div>
+    `;
+}
+
+console.log(membersElems);
+rowElem.innerHTML = membersElems;
