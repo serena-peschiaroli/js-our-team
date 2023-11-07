@@ -41,24 +41,80 @@ console.log(teamMember[3].nome, teamMember[3].ruolo)
 console.log(teamMember[4].nome, teamMember[4].ruolo)
 console.log(teamMember[5].nome, teamMember[5].ruolo)
 
-const rowElem = document.querySelector(".row");
-let membersElems = "";
 
-for(let i = 0; i < teamMember.length; i++) {
-    const curMember = teamMember[i];
-    membersElems += `
+
+// const rowElem = document.querySelector(".row");
+// let membersElems = "";
+
+// for(let i = 0; i < teamMember.length; i++) {
+//     const curMember = teamMember[i];
+//     membersElems += `
     
+//         <div class="col">
+//             <div class="card" style="width: 18rem;">
+//                 <img src="img/${curMember.foto}" class="card-img-top" alt="...">
+//                 <div class="card-body">
+//                      <h5 class="card-title">${curMember.nome}</h5>
+//                      <p class="card-text">${curMember.ruolo}</p>
+//                 </div>
+//             </div>    
+//         </div>
+//     `;
+// }
+
+
+// rowElem.innerHTML = membersElems;
+
+
+function generateTeamMemberCard(member) {
+    return `
         <div class="col">
             <div class="card" style="width: 18rem;">
-                <img src="img/${curMember.foto}" class="card-img-top" alt="...">
+                <img src="img/${member.foto}" class="card-img-top" alt="...">
                 <div class="card-body">
-                     <h5 class="card-title">${curMember.nome}</h5>
-                     <p class="card-text">${curMember.ruolo}</p>
+                     <h5 class="card-title">${member.nome}</h5>
+                     <p class="card-text">${member.ruolo}</p>
                 </div>
             </div>    
         </div>
     `;
 }
 
+const rowElem = document.querySelector(".row");
+let membersElems = "";
+
+for (let i = 0; i < teamMember.length; i++) {
+    membersElems += generateTeamMemberCard(teamMember[i]);
+}
 
 rowElem.innerHTML = membersElems;
+
+const addMemberForm = document.getElementById("addMemberForm");
+
+addMemberForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const role = document.getElementById("role").value;
+    const photo = document.getElementById("photo").value;
+
+   
+    const newMember = {
+        nome: name,
+        ruolo: role,
+        foto: photo,
+    };
+
+    
+    teamMember.push(newMember);
+
+  
+    membersElems += generateTeamMemberCard(newMember);
+    rowElem.innerHTML = membersElems;
+
+
+    addMemberForm.reset();
+});
+
+
+

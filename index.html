@@ -10,8 +10,24 @@
 <body>
     <div class="container mt-5">
         <h2 class="text-center mb-2"> Our Team</h2>
-        <div class="row pt-2 g-4 text-center">
+        <div class="row row-cols-3 g-3">
            
+        </div>
+        <div class="row">
+            <div class="col">
+                <form id="addMemberForm">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                
+                    <label for="role">Role:</label>
+                    <input type="text" id="role" name="role" required>
+                
+                    <label for="photo">Photo URL:</label>
+                    <input type="text" id="photo" name="photo" required>
+                
+                    <button type="submit btn" id="submit-btn">Add Team Member</button>
+                </form>
+            </div>
         </div>
     </div>
     <script src="js/script.js"></script>
